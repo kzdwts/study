@@ -11,10 +11,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @since 1.0.0
  */
 @SpringBootApplication
-public class CanalKafkaDemo01 {
+public class CanalKafkaDemo01Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(CanalKafkaDemo01.class, args);
+        SpringApplication.run(CanalKafkaDemo01Application.class, args);
     }
 
 }
