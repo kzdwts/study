@@ -15,6 +15,11 @@ import java.nio.channels.FileChannel;
  */
 public class TestNIO {
 
+    /**
+     * 写数据到文件
+     *
+     * @throws IOException
+     */
     @Test
     public void test01() throws IOException {
         // 1、创建输出流
@@ -37,6 +42,11 @@ public class TestNIO {
         fos.close();
     }
 
+    /**
+     * 从文件读数据
+     *
+     * @throws IOException
+     */
     @Test
     public void test02() throws IOException {
         File file = new File("basic.txt");
@@ -52,6 +62,25 @@ public class TestNIO {
         System.out.println(new String(byteBuffer.array()));
 
         fc.close();
+    }
+
+    /**
+     * 使用nio实现文件复制
+     */
+    @Test
+    public void test03CopyFile() throws IOException {
+        // 1、创建两个流
+        FileInputStream fis = new FileInputStream("basic.txt");
+        FileOutputStream fos = new FileOutputStream("C:\\Temp\\text.txt");
+
+        // 2、得到两个通道
+        FileChannel sourceFC = fis.getChannel();
+        FileChannel destFC = fos.getChannel();
+
+        // 3、复制
+//        sourceFC.transferTo(0, sourceFC.size(), destFC);
+        destFC.transferFrom(sourceFC, 0, sourceFC.size());
+
     }
 
 }
