@@ -1,9 +1,8 @@
 package com.kystudy.niodemo.file;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import org.junit.jupiter.api.Test;
+
+import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
@@ -16,7 +15,8 @@ import java.nio.channels.FileChannel;
  */
 public class TestNIO {
 
-    public static void main(String[] args) throws IOException {
+    @Test
+    public void test01() throws IOException {
         // 1、创建输出流
         FileOutputStream fos = new FileOutputStream("basic.txt");
         // 2、获取通道
@@ -35,6 +35,23 @@ public class TestNIO {
 
         // 6、关闭
         fos.close();
+    }
+
+    @Test
+    public void test02() throws IOException {
+        File file = new File("basic.txt");
+        // 1、获取输入流
+        FileInputStream fis = new FileInputStream(file);
+        // 2、获取通道
+        FileChannel fc = fis.getChannel();
+
+        ByteBuffer byteBuffer = ByteBuffer.allocate((int) file.length());
+
+        // 从通道读取数据并存到缓冲区中
+        fc.read(byteBuffer);
+        System.out.println(new String(byteBuffer.array()));
+
+        fc.close();
     }
 
 }
