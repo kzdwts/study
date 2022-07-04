@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout>
+                <pattern>%-d{yyyy-MM-dd HH:mm:ss} [%c]-[%p] - %m%n</pattern>
+            </PatternLayout>
+        </Console>
+        <Kafka name="Kafka" topic="kafkaLogTest">
+            <PatternLayout pattern=" %d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%t] %X{requestID} %c{1} - %msg%n"/>
+            <Property name="bootstrap.servers">192.168.10.131:9092</Property>
+        </Kafka>
+        <Kafka name="Biz" topic="bizLogTest">
+            <PatternLayout pattern=" %d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%t] %X{requestID} %c{1} - %msg%n"/>
+            <Property name="bootstrap.servers">192.168.10.131:9092</Property>
+        </Kafka>
+    </Appenders>
+    <Loggers>
+        <root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="Kafka"/>
+            <AppenderRef ref="Biz" />
+        </root>
+    </Loggers>
+</Configuration>

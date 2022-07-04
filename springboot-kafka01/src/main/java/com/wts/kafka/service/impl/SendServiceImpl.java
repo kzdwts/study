@@ -30,7 +30,7 @@ public class SendServiceImpl implements SendService {
     @Override
     public void sendFoo(String msg) {
         log.info("===SEND_MSG===START===");
-        this.kafkaTemplate.send("topic_input", msg);
+        this.kafkaTemplate.send("bizLogTest", msg);
         log.info("===SEND_MSG===END===");
     }
 }

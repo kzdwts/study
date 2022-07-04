@@ -2,5 +2,16 @@ server:
   port: 8081
 spring:
   kafka:
+    bootstrap-servers: 192.168.10.131:9092
     producer:
-      bootstrap-servers: 127.0.0.1:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      group-id: test
+      auto-commit-interval: 1000
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    listener:
+      missing-topics-fatal: false
+logging:
+  config: classpath:log4j2.xml
