@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+# 自定义参数
+param:
+  android:
+    - app-code: wechat
+      ym-key: 123456
+      ym-secret: 1234567890
+      ym-model: true
+    - app-code: alipay
+      ym-key: 123456
+      ym-secret: 1234567890
+      ym-model: true
+  ios:
+    - app-code: youdao
+      ym-key: youdao
+      ym-secret: youdao1234567890
+      ym-model: false
+    - app-code: dingTalk
+      ym-key: dingding
+      ym-secret: dingdingTalk
+      ym-model: true
