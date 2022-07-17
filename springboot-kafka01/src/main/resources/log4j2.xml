@@ -10,6 +10,7 @@
             <PatternLayout pattern=" %d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%t] %X{requestID} %c{1} - %msg%n"/>
             <Property name="bootstrap.servers">192.168.10.131:9092</Property>
         </Kafka>
+        <!--这里加一个groupId试试-->
         <Kafka name="Biz" topic="bizLogTest">
             <PatternLayout pattern=" %d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%t] %X{requestID} %c{1} - %msg%n"/>
             <Property name="bootstrap.servers">192.168.10.131:9092</Property>
